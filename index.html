@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ottawa Dining Guide</title>
+<meta name="description" content="Independent notes on where to eat in Ottawa.">
+<link rel="canonical" href="https://www.ottawadiningguide.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ottawa Dining Guide">
+<meta property="og:description" content="Independent notes on where to eat in Ottawa.">
+<meta property="og:url" content="https://www.ottawadiningguide.com/">
+<meta property="og:site_name" content="Ottawa Dining Guide">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Ottawa Dining Guide",
+  "url": "https://www.ottawadiningguide.com/",
+  "description": "Independent notes on where to eat in Ottawa."
+}
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap');
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  :root{
+    --surface:#DCD6C7;
+    --page:#F8F4ED;
+    --ink:#18160F;
+    --accent:#565025;
+    --muted: rgba(24,22,15,0.5);
+    --line: rgba(24,22,15,0.1);
+  }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--surface);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:5vh 20px;
+  }
+
+  /* THE COVER */
+  .cover-wrap{
+    width:100%;
+    max-width:540px;
+  }
+
+  .cover{
+    position:relative;
+    width:100%;
+    background:var(--page);
+    box-shadow:0 40px 80px -24px rgba(24,22,15,0.32), 0 6px 18px rgba(24,22,15,0.08);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+  }
+
+  /* NAMEPLATE BAR */
+  .nameplate-bar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:24px 26px 6px;
+  }
+
+  .menu-btn{
+    background:none;
+    border:none;
+    padding:4px;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  .menu-btn span{
+    display:block;
+    width:20px; height:1.5px;
+    background:var(--ink);
+  }
+
+  .wordmark{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:15px;
+    letter-spacing:0.16em;
+    text-decoration:none;
+    color:var(--ink);
+    text-align:center;
+  }
+  .wordmark span{
+    display:block;
+    color:var(--accent);
+    font-size:0.55em;
+    letter-spacing:0.28em;
+    margin-top:5px;
+  }
+
+  .issue-tag{
+    font-size:9px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--muted);
+    text-align:right;
+    white-space:nowrap;
+  }
+
+  /* COVER PHOTO — framed with generous space, not cropped tight */
+  .cover-link{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+  }
+
+  .cover-photo-frame{
+    padding:22px 34px 8px;
+  }
+  .cover-photo{
+    width:100%;
+    display:block;
+    object-fit:contain;
+  }
+
+  /* COVER LINES — live below the photo, not overlaid on it */
+  .cover-lines{
+    padding:20px 34px 40px;
+    text-align:center;
+  }
+  .cover-eyebrow{
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:14px;
+  }
+  .cover-title{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:clamp(24px, 5.5vw, 32px);
+    line-height:1.15;
+    color:var(--ink);
+  }
+
+  /* MENU OVERLAY */
+  .menu-overlay{
+    position:absolute;
+    inset:0;
+    background:var(--page);
+    z-index:10;
+    display:flex;
+    flex-direction:column;
+    padding:22px;
+    transform:translateY(-100%);
+    transition:transform 0.4s cubic-bezier(.6,0,.4,1);
+  }
+  .menu-overlay.is-open{
+    transform:translateY(0);
+  }
+  .menu-close{
+    align-self:flex-end;
+    background:none;
+    border:none;
+    font-family:'Fraunces', serif;
+    font-size:22px;
+    color:var(--ink);
+    cursor:pointer;
+    line-height:1;
+    padding:4px 8px;
+  }
+  .menu-list{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:28px;
+    padding-bottom:40px;
+  }
+  .menu-list a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .menu-tag{
+    display:block;
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:8px;
+  }
+  .menu-title{
+    display:block;
+    font-family:'Fraunces', serif;
+    font-size:clamp(22px, 5vw, 28px);
+    line-height:1.2;
+  }
+
+  footer{
+    margin-top:24px;
+    text-align:center;
+  }
+  footer p{
+    font-size:11px;
+    color:rgba(24,22,15,0.42);
+    letter-spacing:0.05em;
+  }
+
+  @media(max-width:420px){
+    .cover-wrap{ max-width:100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover-wrap">
+  <div class="cover">
+
+    <div class="nameplate-bar">
+      <button class="menu-btn" id="menu-open" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a class="wordmark" href="index.html">OTTAWA<span>DINING GUIDE</span></a>
+      <span class="issue-tag">Sept.<br>2026</span>
+    </div>
+
+    <a class="cover-link" href="worth-travelling-for.html">
+      <div class="cover-photo-frame">
+        <img class="cover-photo" src="worth-travelling-hero.jpg" alt="A dessert course from this month's featured restaurants">
+      </div>
+      <div class="cover-lines">
+        <p class="cover-eyebrow">The Shortlist</p>
+        <h1 class="cover-title">2 Ottawa Restaurants Worth Travelling For</h1>
+      </div>
+    </a>
+
+    <div class="menu-overlay" id="menu-overlay">
+      <button class="menu-close" id="menu-close" aria-label="Close menu">×</button>
+      <div class="menu-list">
+        <a href="worth-travelling-for.html">
+          <span class="menu-tag">The Shortlist · September 2026</span>
+          <span class="menu-title">2 Ottawa Restaurants Worth Travelling For</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>Ottawa Dining Guide — independent notes on where to eat.</p>
+</footer>
+
+<script>
+  (function(){
+    var openBtn = document.getElementById('menu-open');
+    var closeBtn = document.getElementById('menu-close');
+    var overlay = document.getElementById('menu-overlay');
+
+    openBtn.addEventListener('click', function(){ overlay.classList.add('is-open'); });
+    closeBtn.addEventListener('click', function(){ overlay.classList.remove('is-open'); });
+  })();
+</script>
+
+</body>
+</html>
