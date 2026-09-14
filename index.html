@@ -56,7 +56,7 @@
     --accent: #5C2A30;
     --accent-light: #7A3D42;
 
-    --s4: 20px;
+    --s4: 140px;
     --s5: 34px;
     --s6: 56px;
     --s7: 84px;
@@ -71,6 +71,7 @@
   body{
     position: relative;
     margin: 0;
+    margin-top: 60px;
     background: var(--paper);
     color: var(--ink);
     font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -79,7 +80,7 @@
     overflow-x: clip;
   }
 
-  @media (min-width: 1020px){
+  @media (min-width: 760px){
     body{
       max-width: 1220px;
       margin: 44px auto;
@@ -141,15 +142,17 @@
   }
 
   @media (max-width: 600px){
-    .ribbon{ width: 22px; height: 70px; right: 20px; }
+    .ribbon{ width: 22px; height: 70px; right: 28px; }
   }
 
   /* Header */
 
-  header{
+  .site-header{
     position: relative;
     z-index: 2;
-    padding: var(--s6) 0 var(--s5);
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 160px 140px 34px;
   }
 
   .wordmark{
@@ -183,7 +186,7 @@
 
   .hero{
     position: relative;
-    padding: var(--s6) 0 0;
+    padding-top: var(--s6);
     overflow: hidden;
   }
 
@@ -266,7 +269,7 @@
 
   /* Question index */
 
-  .index-section{ padding: var(--s6) 0 var(--s6); }
+  .index-section{ padding-top: var(--s6); padding-bottom: var(--s6); }
 
   .question-index{
     list-style: none;
@@ -378,7 +381,7 @@
 
 <div class="ribbon" aria-hidden="true"></div>
 
-<header class="wrap">
+<header class="site-header">
   <a class="wordmark" href="/" aria-label="Ottawa Dining Guide, home">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
@@ -415,10 +418,9 @@
   <section class="index-section wrap">
 
     <!--
-      Each item below is a <span class="q"> until its article exists.
-      Once /answer-pages.html are published, swap the span for:
-      <a class="q" href="/slug.html">Question text</a>
-      The slug for each question is noted in the data-slug attribute.
+      Only published questions are listed below. To add a new one once
+      its article is live, add a new line in this format:
+      <li><a class="q" href="/slug.html">Question text</a></li>
     -->
     <ul class="question-index">
       <li><a class="q" href="/open-monday.html">Where can I eat in Ottawa on a Monday?</a></li>
@@ -428,16 +430,10 @@
       <li><a class="q" href="/private-dining.html">Which Ottawa restaurants have private dining rooms?</a></li>
       <li><a class="q" href="/large-groups.html">Which Ottawa restaurants are good for large groups?</a></li>
       <li><a class="q" href="/tasting-menus.html">Where can I get a tasting menu in Ottawa?</a></li>
-      <li><span class="q" data-slug="/vegetarian-tasting-menus.html">Which Ottawa restaurants offer vegetarian tasting menus?</span></li>
-      <li><span class="q" data-slug="/non-alcoholic-pairings.html">Which Ottawa restaurants have good non-alcoholic pairings?</span></li>
       <li><a class="q" href="/new-restaurants.html">What are Ottawa's newest restaurants?</a></li>
       <li><a class="q" href="/visiting-ottawa.html">Where should I take someone visiting Ottawa?</a></li>
-      <li><span class="q" data-slug="/near-nac.html">Where should I eat before a show at the NAC?</span></li>
       <li><a class="q" href="/special-occasion.html">Which Ottawa restaurants are good for a special occasion?</a></li>
-      <li><span class="q" data-slug="/solo-dining.html">Where can I eat alone in Ottawa?</span></li>
-      <li><span class="q" data-slug="/reservations.html">Which Ottawa restaurants take reservations?</span></li>
       <li><a class="q" href="/michelin-stars.html">Are there any Michelin star restaurants in Ottawa?</a></li>
-      <li><span class="q" data-slug="/late-sunday-dinner.html">Where can I have a late Sunday dinner in Ottawa?</span></li>
     </ul>
   </section>
 
