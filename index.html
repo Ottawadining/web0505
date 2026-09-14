@@ -56,7 +56,7 @@
     --accent: #5C2A30;
     --accent-light: #7A3D42;
 
-    --s4: 140px;
+    --s4: 24px;
     --s5: 34px;
     --s6: 56px;
     --s7: 84px;
@@ -71,7 +71,6 @@
   body{
     position: relative;
     margin: 0;
-    margin-top: 60px;
     background: var(--paper);
     color: var(--ink);
     font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -142,7 +141,7 @@
   }
 
   @media (max-width: 600px){
-    .ribbon{ width: 22px; height: 70px; right: 28px; }
+    .ribbon{ width: 22px; height: 70px; right: 24px; }
   }
 
   /* Header */
@@ -152,7 +151,7 @@
     z-index: 2;
     max-width: 980px;
     margin: 0 auto;
-    padding: 160px 140px 34px;
+    padding: var(--s6) var(--s4) var(--s5);
   }
 
   .wordmark{
